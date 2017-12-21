@@ -7,27 +7,34 @@ class Animals_on_farm:
 
     def info(self):
         print("{} - это {}.".format(self.name, self.kind))
-        print("{} имеет продолжительность жизни (лет): {}.".format(self.name, self.age))
-        print("Максимальный вес, которого достигает {} равен {} кг.".format(self.name.lower(), self.weight))
+        print("{} имеет продолжительность жизни (лет): {}."
+              .format(self.name, self.age))
+        print("Максимальный вес, которого достигает {} равен {} кг."
+              .format(self.name.lower(), self.weight))
+
 
 class Mammals_birds(Animals_on_farm):
     def __init__(self, name, weight, age):
         super().__init__(name, weight, age)
 
-    def give(self, milk, animal_type = '"млекопитающие"'):
+    def give(self, milk, animal_type='"млекопитающие"'):
         self.milk = milk
         self.animal_type = animal_type
-        print("{} относится к типу {} и даёт в среднем {} литров молока в месяц.".format(self.name, self.animal_type, self.milk))
+        print("{} относится к типу {} и даёт в среднем {} литров молока "
+              "в месяц.".format(self.name, self.animal_type, self.milk))
 
-    def give_pork(self, pork, animal_type = '"млекопитающие"'):
+    def give_pork(self, pork, animal_type='"млекопитающие"'):
         self.pork = pork
         self.animal_type = animal_type
-        print("{} относится к типу {} и даёт в среднем {} кг мяса.".format(self.name, self.animal_type, self.pork))
+        print("{} относится к типу {} и даёт в среднем {} кг мяса.".format
+              (self.name, self.animal_type, self.pork))
 
-    def give_bird(self, pork, animal_type = '"птицы"'):
+    def give_bird(self, pork, animal_type='"птицы"'):
         self.pork = pork
         self.animal_type = animal_type
-        print("{} относится к типу {} и даёт в среднем {} кг мяса.".format(self.name, self.animal_type, self.pork))
+        print("{} относится к типу {} и даёт в среднем {} кг мяса."
+              .format(self.name, self.animal_type, self.pork))
+
 
 animal_1 = Mammals_birds("Корова", 20, 1200)
 animal_1.info()
