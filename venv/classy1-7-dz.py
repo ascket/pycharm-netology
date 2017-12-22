@@ -35,6 +35,7 @@ class Cows(Animals_on_farm):
         print("{} имеет {} рога и {} копыта."
               .format(self.name, self.horns, self.hooves))
 
+
 class Goats(Animals_on_farm):
     def __init__(self, name, weight, age):
         super().__init__(name, weight, age)
@@ -44,6 +45,7 @@ class Goats(Animals_on_farm):
         print("{} имеет рога длиной {} и копыта."
               .format(self.name, self.horns))
 
+
 class Shepps(Animals_on_farm):
     def __init__(self, name, weight, age):
         super().__init__(name, weight, age)
@@ -52,6 +54,7 @@ class Shepps(Animals_on_farm):
         self.latain = latain
         print("{} по латыни {}."
               .format(self.name, self.latain))
+
 
 class Pigs(Animals_on_farm):
     def __init__(self, name, weight, age, animal_type='"млекопитающие"'):
@@ -63,6 +66,7 @@ class Pigs(Animals_on_farm):
         print("{} относится к типу {} и даёт в среднем {} кг мяса.".format
               (self.name, self.animal_type, self.pork))
 
+
 class Ducks(Animals_on_farm):
     def __init__(self, name, weight, age):
         super().__init__(name, weight, age)
@@ -71,6 +75,7 @@ class Ducks(Animals_on_farm):
         self.wings = wings
         print("Кроме того, {} имеет {} крыла."
               .format(self.name.lower(), self.wings))
+
 
 class Chickens(Animals_on_farm):
     def __init__(self, name, weight, age):
@@ -81,6 +86,7 @@ class Chickens(Animals_on_farm):
         self.eggs = eggs
         print("Кроме того, {} имеет {} крыла и нёсёт по {} яйца в день."
               .format(self.name.lower(), self.wings, self.eggs))
+
 
 class Geese(Animals_on_farm):
     def __init__(self, name, weight, age):
