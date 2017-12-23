@@ -1,4 +1,4 @@
-class Animals_on_farm:
+class AnimalsOnFarm:
     def __init__(self, name, age, weight):
         self.name = name
         self.kind = "домашнее животное"
@@ -12,31 +12,24 @@ class Animals_on_farm:
         print("Максимальный вес, которого достигает {} равен {} кг."
               .format(self.name.lower(), self.weight))
 
-    def give(self, milk, animal_type='"млекопитающие"'):
-        self.milk = milk
-        self.animal_type = animal_type
-        print("{} относится к типу {} и даёт в среднем {} литров молока "
-              "в месяц.".format(self.name, self.animal_type, self.milk))
 
-    def give_bird(self, pork, animal_type='"птицы"'):
-        self.pork = pork
-        self.animal_type = animal_type
-        print("{} относится к типу {} и даёт в среднем {} кг мяса."
-              .format(self.name, self.animal_type, self.pork))
-
-
-class Cows(Animals_on_farm):
-    def __init__(self, name, weight, age, hooves=4):
+class Cows(AnimalsOnFarm):
+    def __init__(self, name, weight, age):
         super().__init__(name, weight, age)
-        self.hooves = hooves
+        self.hooves = 4
 
-    def horns(self, horns=4):
-        self.horns = horns
+    def horns(self):
+        self.horns = 4
         print("{} имеет {} рога и {} копыта."
               .format(self.name, self.horns, self.hooves))
 
+    def give(self, milk):
+        self.milk = milk
+        self.animal_type = '"млекопитающие"'
+        print("{} относится к типу {} и даёт в среднем {} литров молока "
+              "в месяц.".format(self.name, self.animal_type, self.milk))
 
-class Goats(Animals_on_farm):
+class Goats(AnimalsOnFarm):
     def __init__(self, name, weight, age):
         super().__init__(name, weight, age)
 
@@ -45,56 +38,81 @@ class Goats(Animals_on_farm):
         print("{} имеет рога длиной {} и копыта."
               .format(self.name, self.horns))
 
+    def give(self, milk):
+        self.milk = milk
+        self.animal_type = '"млекопитающие"'
+        print("{} относится к типу {} и даёт в среднем {} литров молока "
+              "в месяц.".format(self.name, self.animal_type, self.milk))
 
-class Shepps(Animals_on_farm):
+class Shepps(AnimalsOnFarm):
     def __init__(self, name, weight, age):
         super().__init__(name, weight, age)
 
-    def latain(self, latain='"Ovis aries"'):
-        self.latain = latain
+    def latain(self):
+        self.latain = '"Ovis aries"'
         print("{} по латыни {}."
               .format(self.name, self.latain))
 
+    def give(self, milk):
+        self.milk = milk
+        self.animal_type = '"млекопитающие"'
+        print("{} относится к типу {} и даёт в среднем {} литров молока "
+              "в месяц.".format(self.name, self.animal_type, self.milk))
 
-class Pigs(Animals_on_farm):
-    def __init__(self, name, weight, age, animal_type='"млекопитающие"'):
+class Pigs(AnimalsOnFarm):
+    def __init__(self, name, weight, age):
         super().__init__(name, weight, age)
-        self.animal_type = animal_type
+        self.animal_type = '"млекопитающие"'
 
     def give_pork(self, pork):
         self.pork = pork
         print("{} относится к типу {} и даёт в среднем {} кг мяса.".format
               (self.name, self.animal_type, self.pork))
 
-
-class Ducks(Animals_on_farm):
+class Ducks(AnimalsOnFarm):
     def __init__(self, name, weight, age):
         super().__init__(name, weight, age)
 
-    def wings(self, wings=2):
-        self.wings = wings
+    def give_bird(self, pork):
+        self.pork = pork
+        self.animal_type = '"птицы"'
+        print("{} относится к типу {} и даёт в среднем {} кг мяса."
+              .format(self.name, self.animal_type, self.pork))
+
+    def wings(self):
+        self.wings = 2
         print("Кроме того, {} имеет {} крыла."
               .format(self.name.lower(), self.wings))
 
-
-class Chickens(Animals_on_farm):
+class Chickens(AnimalsOnFarm):
     def __init__(self, name, weight, age):
         super().__init__(name, weight, age)
 
-    def eggs(self, wings=2, eggs="1-2"):
-        self.wings = wings
-        self.eggs = eggs
+    def give_bird(self, pork):
+        self.pork = pork
+        self.animal_type = '"птицы"'
+        print("{} относится к типу {} и даёт в среднем {} кг мяса."
+              .format(self.name, self.animal_type, self.pork))
+
+    def eggs(self):
+        self.wings = 2
+        self.eggs = "1-2"
         print("Кроме того, {} имеет {} крыла и нёсёт по {} яйца в день."
               .format(self.name.lower(), self.wings, self.eggs))
 
-
-class Geese(Animals_on_farm):
+class Geese(AnimalsOnFarm):
     def __init__(self, name, weight, age):
         super().__init__(name, weight, age)
 
-    def paws(self, paws=2, beak=1):
-        self.paws = paws
-        self.beak = beak
+    def give_bird(self, pork):
+        self.pork = pork
+        self.animal_type = '"птицы"'
+        print("{} относится к типу {} и даёт в среднем {} кг мяса."
+              .format(self.name, self.animal_type, self.pork))
+
+    def paws(self):
+        self.paws = 2
+        self.beak = 1
         print("{} отличается {} лапами и {} клювом."
               .format(self.name, self.paws, self.beak))
 
