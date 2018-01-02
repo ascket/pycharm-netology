@@ -31,10 +31,13 @@ def words_count(article):
                 count_list.append(value)
         beta = sorted(count_list)
         count_list_reverse = beta[::-1]
+        
+        count_list_reverse_lim = count_list_reverse[:10]
 
-        for key, values in words_with_count.items():
-            if words_with_count[key] in count_list_reverse[0:10]:
-                print('Слово "{}" встречается {} раз(а)'.format(key, values))
+        for elementen in count_list_reverse_lim:
+            for key, values in words_with_count.items():
+                if words_with_count[key] == elementen:
+                    print('Слово "{}" встречается {} раз(а)'.format(key, values))
 
 
 def main():
