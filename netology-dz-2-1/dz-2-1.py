@@ -1,6 +1,6 @@
 # coding: utf-8
 
-def cook_book_funk():
+def read_cook_book():
     list_dish_name = []
     list_ingridient = []
     with open("cook-book.txt") as cb:
@@ -9,7 +9,7 @@ def cook_book_funk():
             list_dish_name.append(dish_name)
             ammount_disches = cb.readline()
             ingridient_list = []
-            for elem in range(int(ammount_disches)):
+            for i in range(int(ammount_disches)):
                 fields = cb.readline()
                 fields = fields.split(" | ")
                 l = [line.rstrip() for line in fields]
@@ -35,10 +35,10 @@ def cook_book_funk():
     return (ingridients_dict)
 
 
-def get_shop_list_by_dishes(dishes, person_count):
+def get_shop_list_by_dishes(dishes, person_count, populate_cook_book):
     shop_list = {}
     for dish in dishes:
-        for ingridient in cook_book_funk()[dish]:
+        for ingridient in populate_cook_book[dish]:
             new_shop_list_item = dict(ingridient)
 
             new_shop_list_item['quantity'] *= person_count
@@ -59,7 +59,8 @@ def create_shop_list():
     person_count = int(input('Введите количество человек: '))
     dishes = input('Введите блюда в расчете на одного человека (через запятую + пробел): ') \
         .title().split(', ')
-    shop_list = get_shop_list_by_dishes(dishes, person_count)
+    populate_cook_book = read_cook_book()
+    shop_list = get_shop_list_by_dishes(dishes, person_count, populate_cook_book)
     print_shop_list(shop_list)
 
 
