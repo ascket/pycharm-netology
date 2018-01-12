@@ -14,12 +14,9 @@ class AnimalsOnFarm:
 
 
 class Cows(AnimalsOnFarm):
-    def __init__(self, name, weight, age):
-        super().__init__(name, weight, age)
-        self.hooves = 4
-
     def horns(self):
         self.horns = 4
+        self.hooves = 4
         print("{} имеет {} рога и {} копыта."
               .format(self.name, self.horns, self.hooves))
 
@@ -30,9 +27,6 @@ class Cows(AnimalsOnFarm):
               "в месяц.".format(self.name, self.animal_type, self.milk))
 
 class Goats(AnimalsOnFarm):
-    def __init__(self, name, weight, age):
-        super().__init__(name, weight, age)
-
     def horns(self):
         self.horns = "90-100 см"
         print("{} имеет рога длиной {} и копыта."
@@ -45,9 +39,6 @@ class Goats(AnimalsOnFarm):
               "в месяц.".format(self.name, self.animal_type, self.milk))
 
 class Shepps(AnimalsOnFarm):
-    def __init__(self, name, weight, age):
-        super().__init__(name, weight, age)
-
     def latain(self):
         self.latain = '"Ovis aries"'
         print("{} по латыни {}."
@@ -60,19 +51,13 @@ class Shepps(AnimalsOnFarm):
               "в месяц.".format(self.name, self.animal_type, self.milk))
 
 class Pigs(AnimalsOnFarm):
-    def __init__(self, name, weight, age):
-        super().__init__(name, weight, age)
-        self.animal_type = '"млекопитающие"'
-
     def give_pork(self, pork):
         self.pork = pork
+        self.animal_type = '"млекопитающие"'
         print("{} относится к типу {} и даёт в среднем {} кг мяса.".format
               (self.name, self.animal_type, self.pork))
 
 class Ducks(AnimalsOnFarm):
-    def __init__(self, name, weight, age):
-        super().__init__(name, weight, age)
-
     def give_bird(self, pork):
         self.pork = pork
         self.animal_type = '"птицы"'
@@ -85,9 +70,6 @@ class Ducks(AnimalsOnFarm):
               .format(self.name.lower(), self.wings))
 
 class Chickens(AnimalsOnFarm):
-    def __init__(self, name, weight, age):
-        super().__init__(name, weight, age)
-
     def give_bird(self, pork):
         self.pork = pork
         self.animal_type = '"птицы"'
@@ -101,9 +83,6 @@ class Chickens(AnimalsOnFarm):
               .format(self.name.lower(), self.wings, self.eggs))
 
 class Geese(AnimalsOnFarm):
-    def __init__(self, name, weight, age):
-        super().__init__(name, weight, age)
-
     def give_bird(self, pork):
         self.pork = pork
         self.animal_type = '"птицы"'
