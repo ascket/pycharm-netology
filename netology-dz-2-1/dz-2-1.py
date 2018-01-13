@@ -1,38 +1,31 @@
 # coding: utf-8
 
 def read_cook_book():
-    list_dish_name = []
-    list_ingridient = []
     with open("cook-book.txt") as cb:
+        list_dish_name = []
+        list_ingridient = []
         for line in cb:
             dish_name = line.strip()
             list_dish_name.append(dish_name)
-            ammount_disches = cb.readline()
+            ammount_dishes = cb.readline()
             ingridient_list = []
-            for i in range(int(ammount_disches)):
+            for i in range(int(ammount_dishes)):
                 fields = cb.readline()
                 fields = fields.split(" | ")
-                l = [line.rstrip() for line in fields]
-                ingridient_list.append(l)
+                cook_book_key = {}
+                cook_book_key["ingridient_name"] = fields[0]
+                cook_book_key["quantity"] = int(fields[1])
+                cook_book_key["measure"] = fields[2].rstrip()
+                ingridient_list.append(cook_book_key)
             cb.readline()
             list_ingridient.append(ingridient_list)
 
-    ingridient_dict = []
-    for element in list_ingridient:
-        dict_elem = []
-        for elementen in element:
-            cook_book_key = {}
-            cook_book_key["ingridient_name"] = elementen[0]
-            cook_book_key["quantity"] = int(elementen[1])
-            cook_book_key["measure"] = elementen[2]
-            dict_elem.append(cook_book_key)
-        ingridient_dict.append(dict_elem)
-    ingridients_dict = dict()
-    count = 0
-    for elem in list_dish_name:
-        ingridients_dict[elem] = ingridient_dict[count]
-        count += 1
-    return (ingridients_dict)
+        ingridients_dict = dict()
+        count = 0
+        for elem in list_dish_name:
+            ingridients_dict[elem] = list_ingridient[count]
+            count += 1
+        return ingridients_dict
 
 
 def get_shop_list_by_dishes(dishes, person_count, populate_cook_book):
