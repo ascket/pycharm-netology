@@ -1,6 +1,7 @@
 # coding: utf-8
 
-import chardet as ch
+import json
+import pprint
 
 
 def words_count(article):
