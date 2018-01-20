@@ -2,10 +2,15 @@
 
 import json
 import pprint
+import chardet as ch
 
 
 def words_count(article):
-    with open('newsfr.json', encoding="ISO-8859-5") as news:
+    with open(article, "rb") as news:
+        data = news.read()
+        result = ch.detect(data)
+        a = result["encoding"]
+    with open(article, encoding=a) as news:
         data = json.load(news)
         full_text = pprint.pformat(data)
         fields = full_text.split()
@@ -17,13 +22,9 @@ def words_count(article):
                 long_words.append(words.lower())
 
         words_with_count = {}
-        count = 0
         for words in long_words:
-            words_with_count[words] = count
-        for key, values in words_with_count.items():
-            for words in long_words:
-                if key == words:
-                    words_with_count[words] += 1
+            words_with_count.setdefault(words, 0)
+            words_with_count[words] += 1
 
         count_list = []
         for value in words_with_count.values():
