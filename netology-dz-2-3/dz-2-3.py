@@ -4,10 +4,9 @@ import chardet as ch
 
 
 def words_count(article):
-    with open(article, "rb") as news:
-        data = news.read()
-        result = ch.detect(data)
-        full_text = data.decode(result["encoding"])
+    with open('newsfr.json', encoding="ISO-8859-5") as news:
+        data = json.load(news)
+        full_text = pprint.pformat(data)
         fields = full_text.split()
 
         long_words = []
