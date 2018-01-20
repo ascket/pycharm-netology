@@ -6,11 +6,11 @@ import chardet as ch
 
 
 def words_count(article):
-    with open(article, "rb") as news:
-        data = news.read()
-        result = ch.detect(data)
-        a = result["encoding"]
-    with open(article, encoding=a) as news:
+    with open(article, "rb") as news_code:
+        file_read = news_code.read()
+        result = ch.detect(file_read)
+        file_code = result["encoding"]
+    with open(article, encoding=file_code) as news:
         data = json.load(news)
         full_text = pprint.pformat(data)
         fields = full_text.split()
