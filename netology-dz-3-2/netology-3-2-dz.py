@@ -4,6 +4,7 @@ import requests
 import chardet as ch
 import os
 
+
 def translate_it(text, language):
     """
     YANDEX translation plugin
@@ -29,6 +30,7 @@ def translate_it(text, language):
     response = requests.get(url, params=params).json()
     return ' '.join(response.get('text', []))
 
+
 def files():
     source = 'Files'
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -42,6 +44,7 @@ def files():
             file_list.append(configs_path)
     return file_list
 
+
 def full_translate():
     for elem in files():
         with open(elem, "rb") as news:
@@ -52,5 +55,6 @@ def full_translate():
             translate_func = translate_it(full_text, lang)
         with open(lang + "-translate.txt", "w") as rs:
             rs.write(translate_func)
+
 
 full_translate()
