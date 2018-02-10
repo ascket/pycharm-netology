@@ -26,7 +26,7 @@ def such_func(file_list):
 
 
 while True:
-    if len(such_func(file_list)) < 0:
+    if len(such_func(file_list)) = 0:
         such_func(file_list)
     file_list = such_func(file_list)
     such_func(file_list)
