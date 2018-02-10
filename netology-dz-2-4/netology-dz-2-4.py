@@ -24,8 +24,8 @@ def such_func(file_list):
     print("Всего файлов: ", len(selections))
     return selections
 
-such_func(file_list)
 
 while True:
+    such_func(file_list)
     file_list = such_func(file_list)
     such_func(file_list)
