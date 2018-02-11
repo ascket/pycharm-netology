@@ -26,4 +26,4 @@ def such_func():
 
 
 while True:
-    file_list = such_func()
+    file_list = such_func(file_list)
