@@ -2,7 +2,6 @@
 
 import os
 
-
 migrations = 'Migrations'
 current_dir = os.path.dirname(os.path.abspath(__file__))
 abs_file_dir = os.path.abspath(current_dir)
@@ -25,7 +24,6 @@ def such_func():
     print("Всего файлов: ", len(selections))
     return selections
 
-such_func()
 
 while True:
     file_list = such_func()
