@@ -12,7 +12,7 @@ for i in os.listdir(config_path):
     if i.endswith("sql"):
         file_list.append(i)
 
-def such_func():
+def such_func(file_list):
     texter = input("Введите искомую фразу: ")
     selections = []
     for t in file_list:
