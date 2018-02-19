@@ -1,19 +1,20 @@
 # coding: utf-8
 
 import json
-import pprint
 import chardet as ch
 
 
 def words_count(article):
-    with open(article, "rb") as news_code:
-        file_read = news_code.read()
-        result = ch.detect(file_read)
-        file_code = result["encoding"]
-    with open(article, encoding=file_code) as news:
-        data = json.load(news)
-        full_text = pprint.pformat(data)
-        fields = full_text.split()
+    with open(article, "rb") as data:
+        content = data.read()
+        encoding = ch.detect(content)['encoding']
+        decoded = content.decode(encoding)
+        news = json.loads(decoded)
+        articles = news['rss']['channel']['items']
+        fields = ""
+        for article in articles:
+            fields += article['description']
+        fields = fields.split()
 
         long_words = []
         for words in fields:
@@ -52,9 +53,9 @@ def main():
         if article_number == "1":
             article = "newsafr.json"
         elif article_number == "2":
-            article = "newscy.json"
-        elif article_number == "3":
             article = "newsfr.json"
+        elif article_number == "3":
+            article = "newscy.json"
         elif article_number == "4":
             article = "newsit.json"
         else:
