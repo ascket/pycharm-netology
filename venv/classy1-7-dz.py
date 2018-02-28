@@ -6,11 +6,8 @@ class AnimalsOnFarm:
         self.weight = weight
 
     def info(self):
-        print("{} - это {}.".format(self.name, self.kind))
-        print("{} имеет продолжительность жизни (лет): {}."
-              .format(self.name, self.age))
-        print("Максимальный вес, которого достигает {} равен {} кг."
-              .format(self.name.lower(), self.weight))
+        print("{} живёт {} лет, весит {} кг."
+              .format(self.name, self.age, self.weight))
 
 
 class Cows(AnimalsOnFarm):
@@ -22,9 +19,8 @@ class Cows(AnimalsOnFarm):
 
     def give(self, milk):
         self.milk = milk
-        self.animal_type = '"млекопитающие"'
-        print("{} относится к типу {} и даёт в среднем {} литров молока "
-              "в месяц.".format(self.name, self.animal_type, self.milk))
+        print("{} даёт в среднем {} литров молока "
+              "в месяц.".format(self.name, self.milk))
 
 class Goats(AnimalsOnFarm):
     def horns(self):
@@ -39,11 +35,6 @@ class Goats(AnimalsOnFarm):
               "в месяц.".format(self.name, self.animal_type, self.milk))
 
 class Shepps(AnimalsOnFarm):
-    def latain(self):
-        self.latain = '"Ovis aries"'
-        print("{} по латыни {}."
-              .format(self.name, self.latain))
-
     def give(self, milk):
         self.milk = milk
         self.animal_type = '"млекопитающие"'
@@ -53,16 +44,14 @@ class Shepps(AnimalsOnFarm):
 class Pigs(AnimalsOnFarm):
     def give_pork(self, pork):
         self.pork = pork
-        self.animal_type = '"млекопитающие"'
-        print("{} относится к типу {} и даёт в среднем {} кг мяса.".format
-              (self.name, self.animal_type, self.pork))
+        print("{} даёт в среднем {} кг мяса.".format
+              (self.name, self.pork))
 
 class Ducks(AnimalsOnFarm):
     def give_bird(self, pork):
         self.pork = pork
-        self.animal_type = '"птицы"'
-        print("{} относится к типу {} и даёт в среднем {} кг мяса."
-              .format(self.name, self.animal_type, self.pork))
+        print("{} даёт в среднем {} кг мяса."
+              .format(self.name, self.pork))
 
     def wings(self):
         self.wings = 2
@@ -72,9 +61,8 @@ class Ducks(AnimalsOnFarm):
 class Chickens(AnimalsOnFarm):
     def give_bird(self, pork):
         self.pork = pork
-        self.animal_type = '"птицы"'
-        print("{} относится к типу {} и даёт в среднем {} кг мяса."
-              .format(self.name, self.animal_type, self.pork))
+        print("{} даёт в среднем {} кг мяса."
+              .format(self.name, self.pork))
 
     def eggs(self):
         self.wings = 2
@@ -107,7 +95,6 @@ animal_2.horns()
 animal_3 = Shepps("Овца", 14, 55)
 animal_3.info()
 animal_3.give(35)
-animal_3.latain()
 animal_4 = Pigs("Свинья", 13, 300)
 animal_4.info()
 animal_4.give_pork(150)
